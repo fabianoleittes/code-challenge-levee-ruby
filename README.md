@@ -8,7 +8,7 @@
 
 <p align="center">
 
-<img alt="Testing" src="![Tests & Linters](https://github.com/fabianoleittes/code-challenge-levee-ruby/workflows/Tests%20&%20Linters/badge.svg?branch=main)">
+<img alt="Testing" src="https://github.com/fabianoleittes/code-challenge-levee-ruby/workflows/Tests%20&%20Linters/badge.svg?branch=main">
 
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/fabianoleittes/code-challenge-levee-ruby?color=%2304D361">
 
