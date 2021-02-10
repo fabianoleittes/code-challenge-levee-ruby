@@ -90,7 +90,7 @@ $ docker-compose up
 # The server will start at port: 3000 - go to http://localhost:3000
 
 # Run tests in container
-$ docker-compose run --rm api bin/rspec
+$ docker-compose run --rm api bin/rspec spec
 
 ```
 
