@@ -23,6 +23,23 @@ gem 'puma', '~> 5.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'awesome_print', '~> 1.8'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+  gem 'factory_bot_rails', '~> 6.1'
+  gem 'ffaker', '~> 2.17'
+  gem 'pry-rails', '~> 0.3.9'
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.2'
+
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+end
+
+group :test do
+  gem 'database_cleaner-active_record'
+  gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
 end
 
 group :development do
