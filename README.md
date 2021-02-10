@@ -1,24 +1,145 @@
-# README
+<h1 align="center">
+   <a href="#"> Code challenge Levee API </a>
+</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h3 align="center">
+    Backend Engineer Code Challenge - Levee
+</h3>
 
-Things you may want to cover:
+<p align="center">
 
-* Ruby version
+<img alt="Testing" src="![Tests & Linters](https://github.com/fabianoleittes/code-challenge-levee-ruby/workflows/Tests%20&%20Linters/badge.svg?branch=main)">
 
-* System dependencies
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/fabianoleittes/code-challenge-levee-ruby?color=%2304D361">
 
-* Configuration
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/fabianoleittes/code-challenge-levee-ruby">
 
-* Database creation
+  <a href="https://github.com/fabianoleittes/code-challenge-levee-ruby/commits/main">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/fabianoleittes/code-challenge-levee-ruby">
+  </a>
 
-* Database initialization
+   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+   <a href="https://github.com/fabianoleittes/code-challenge-levee-ruby/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/fabianoleittes/code-challenge-levee-ruby?style=social">
+  </a>
+</p>
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+<h4 align="center">
+	 Status: WIP
+</h4>
 
-* Deployment instructions
+<p align="center">
+ <a href="#about">About</a> •
+ <a href="#features">Features</a> •
+ <a href="#how-it-works">How it works</a> •
+ <a href="#tech-stack">Tech Stack</a> •
+ <a href="#author">Author</a> •
+ <a href="#license">License</a>
 
-* ...
+</p>
+
+## About
+
+This project is a simple API for some `Job` routines, such as creating, listing, and activate.
+
+---
+
+## Features
+
+- [ ] Create job
+- [ ] List the all jobs
+- [ ] Activate the status for a specific job
+- [ ] List the percentage and number of active jobs by category.
+- [ ] JWT Token Based Authentication
+- [ ] API versioning
+- [ ] JSON Schema implementation
+- [ ] Setup scripts
+
+---
+
+## How it works
+
+This project is Restful API:
+1. Backend
+
+
+### Pre-requisites
+
+Before you begin, you will need to have the following tools installed on your machine:
+[docker](https://docs.docker.com/install/), [docker compose](https://docs.docker.com/compose/install/), [Git](https://git-scm.com).
+
+In addition, it is good to have an editor to work with the code like [VSCode](https://code.visualstudio.com/)
+
+#### Running the Backend (server)
+
+```bash
+
+# Clone this repository
+$ git clone https://github.com/fabianoleittes/code-challenge-levee-ruby
+
+# Access the project folder cmd/terminal
+$ cd code-challenge-levee-ruby
+
+# building the project
+$ docker-compose build
+
+# Run the application in development mode
+$ docker-compose up
+
+# The server will start at port: 3000 - go to http://localhost:3000
+
+# Run tests in container
+$ docker-compose run --rm api bin/rspec
+
+```
+
+#### API Request
+
+ Endpoint        | HTTP Method           | Description       |
+| --------------- | :---------------------: | :-----------------: |
+
+---
+
+## Test endpoints `API` using curl
+
+## Tech Stack
+
+The following tools were used in the construction of the project:
+
+#### **API**  ([Ruby on Rails](https://rubyonrails.org/)  +  [PostgreSQL](https://www.postgresql.org/))
+
+-   **[rspec](https://github.com/rspec/rspec-rails)**
+-   **[Factory Bot](https://github.com/thoughtbot/factory_bot_rails)**
+-   **[Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers)**
+-   **[JWT](https://github.com/jwt/ruby-jwt)**
+-   **[ffaker](https://github.com/ffaker/ffaker)**
+-   **[Rack Cors](https://github.com/cyu/rack-cors)**
+
+> See more  [Gemfile](https://github.com/fabianoleittes/mob2con-challenge-ruby/blob/main/Gemfile)
+
+**Utilities**
+
+
+-   Commit Conventional:  **[Commitlint](https://github.com/conventional-changelog/commitlint)**
+-   API Test:  **[Insomnia](https://insomnia.rest/)**
+---
+
+## Author
+
+<a href="https://fabianoleittes.me/">
+ <img style="border-radius: 50%;" src="https://avatars3.githubusercontent.com/u/279344?v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Fabiano Leite</b></sub></a>
+ <br />
+
+[![Twitter Badge](https://img.shields.io/badge/-@fabianoleittes-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/fabianoleittes)](https://twitter.com/fabianoleittes) [![Linkedin Badge](https://img.shields.io/badge/-Fabiano-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fabianoleittes/)](https://www.linkedin.com/in/fabianoleittes/)
+
+---
+
+## License 📝
+
+This project is under the license [MIT](./LICENSE).
+
+##### Made with love by Fabiano Leite 👋🏽 [Get in Touch!](Https://www.linkedin.com/in/fabianoleittes/)
+---
