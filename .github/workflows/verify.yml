@@ -24,7 +24,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Set up Ruby
-        uses: actions/setup-ruby@v1.64.1
+        uses: ruby/setup-ruby@v1.64.1
         with:
           ruby-version: 2.7.3
       - name: Install PostgreSQL 13 client
