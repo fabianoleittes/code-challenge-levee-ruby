@@ -3,8 +3,8 @@ name: Tests & Linters
 on: [push, pull_request]
 
 jobs:
-  build:
-
+  tests:
+    name: Tests
     runs-on: ubuntu-latest
 
     services:
@@ -41,9 +41,8 @@ jobs:
         run: |
             bundle config path vendor/bundle
             bundle install --jobs 4 --retry 3
-      - name: Run Tests
+      - name: Setup test database
         env:
-          POSTGRES_DATABASE: code-challenge-levee
           POSTGRES_HOST: localhost
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
@@ -53,4 +52,6 @@ jobs:
           APPLICATION_HOST: api.localhost:3000
         run: |
           bin/rails db:setup
-          bundle exec rspec
+      - name: Run Tests
+        run: |
+          bin/rspec
