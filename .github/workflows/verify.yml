@@ -48,12 +48,12 @@ jobs:
           POSTGRES_PASSWORD: postgres
           WITH_COVERAGE: true
           DISABLE_SPRING: 1
-          APPLICATION_HOST: localhost
+          APPLICATION_HOST: http://api.localhost:3000
         run: |
           bin/rails db:test:prepare
       - name: Run Tests
         env:
           RAILS_ENV: test
-          APPLICATION_HOST: localhost
+          APPLICATION_HOST: http://api.localhost:3000
         run: |
           bin/rspec
