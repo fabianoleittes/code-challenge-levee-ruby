@@ -53,11 +53,25 @@ RSpec.describe 'Users API', type: :request do
   end
 
   def valid_attributes
-    { user: attributes_for(:user) }
+    {
+      "user": {
+        "name": "Son Goku",
+        "email":"goku@gmail.com",
+        "password": "12345678",
+        "password_confirmation": "12345678"
+      }
+    }
   end
 
   def invalid_attributes
-    { user: attributes_for(:user, email: '') }
+    {
+      "user": {
+        "name": "",
+        "email":"goku@gmail.com",
+        "password": "12345678",
+        "password_confirmation": "12345678"
+      }
+    }
   end
 
   def user_fields
