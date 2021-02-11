@@ -54,6 +54,7 @@ jobs:
           bin/rails db:setup
       - name: Run Tests
         env:
+          RAILS_MASTER_KEY: ${{secrets.RAILS_MASTER_KEY}}
           APPLICATION_HOST: api.localhost:3000
         run: |
           bin/rspec

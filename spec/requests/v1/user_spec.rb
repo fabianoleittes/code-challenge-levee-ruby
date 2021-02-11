@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Users API', type: :request do
@@ -55,10 +57,10 @@ RSpec.describe 'Users API', type: :request do
   def valid_attributes
     {
       "user": {
-        "name": "Son Goku",
-        "email":"goku@gmail.com",
-        "password": "12345678",
-        "password_confirmation": "12345678"
+        "name": 'Son Goku',
+        "email": 'goku@gmail.com',
+        "password": '12345678',
+        "password_confirmation": '12345678'
       }
     }
   end
@@ -66,10 +68,10 @@ RSpec.describe 'Users API', type: :request do
   def invalid_attributes
     {
       "user": {
-        "name": "",
-        "email":"goku@gmail.com",
-        "password": "12345678",
-        "password_confirmation": "12345678"
+        "name": '',
+        "email": 'goku@gmail.com',
+        "password": '12345678',
+        "password_confirmation": '12345678'
       }
     }
   end
