@@ -1,5 +1,8 @@
+# require 'api_version'
 Rails.application.routes.draw do
-  namespace :v1 do
-    post 'signup', to: 'users#create'
+  scope defaults: { format: :json }, path: '/' do
+    namespace :v1 do
+      post 'signup', to: 'users#create'
+    end
   end
 end

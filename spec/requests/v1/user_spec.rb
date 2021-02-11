@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Users API', type: :request do
@@ -8,19 +10,19 @@ RSpec.describe 'Users API', type: :request do
 
         expect(response).to have_http_status(:created)
       end
-    end
 
-    it 'create a User account' do
-      expect do
+      it 'create a User account' do
+        expect do
+          make_request_for_signup(valid_attributes)
+        end.to change(User, :count).by(1)
+      end
+
+      it 'returns correct JSON payload' do
         make_request_for_signup(valid_attributes)
-      end.to change(User, :count).by(1)
-    end
 
-    it 'returns correct JSON payload' do
-      make_request_for_signup(valid_attributes)
-
-      attr = json_response['user'].keys
-      expect(attr).to contain_exactly(*user_fields)
+        attr = json_response['user'].keys
+        expect(attr).to contain_exactly(*user_fields)
+      end
     end
 
     context 'when the request is invalid' do

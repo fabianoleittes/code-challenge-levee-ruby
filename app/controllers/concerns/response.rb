@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Response
   def respond_with_json(resource, status = :ok)
     render json: resource, status: status
