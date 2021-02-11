@@ -22,8 +22,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'blueprinter', '~> 0.25.2'
 gem 'oj', '~> 3.11', '>= 3.11.2'
-# gem 'rack-attack', '~> 6.5'
-# gem 'rack-cors'
+gem 'rack-attack', '~> 6.5'
+gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

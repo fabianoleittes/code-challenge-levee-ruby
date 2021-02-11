@@ -5,28 +5,20 @@ require 'rails_helper'
 RSpec.describe 'Users API', type: :request do
   describe 'POST /v1/signup' do
     context 'when the request is valid' do
-      before do
-        post(
-          '/v1/signup',
-          params: valid_attributes.to_json,
-          headers: { 'Content-Type' => 'application/json' }
-        )
-      end
-
       it 'returns http status code created' do
-        # make_request_for_signup(valid_attributes)
+        make_request_for_signup(valid_attributes)
 
         expect(response).to have_http_status(:created)
       end
 
-      xit 'create a User account' do
+      it 'create a User account' do
         expect do
-          # make_request_for_signup(valid_attributes)
+          make_request_for_signup(valid_attributes)
         end.to change(User, :count).by(1)
       end
 
       it 'returns correct JSON payload' do
-        # make_request_for_signup(valid_attributes)
+        make_request_for_signup(valid_attributes)
 
         attr = json_response['user'].keys
         expect(attr).to contain_exactly(*user_fields)
@@ -34,27 +26,20 @@ RSpec.describe 'Users API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before do
-        post(
-          '/v1/signup',
-          params: invalid_attributes.to_json,
-          headers: { 'Content-Type' => 'application/json' }
-        )
-      end
       it 'returns http status code unprocessable_entity' do
-        # make_request_for_signup(invalid_attributes)
+        make_request_for_signup(invalid_attributes)
 
         expect(response).to have_http_status(:unprocessable_entity)
       end
 
       it 'does not create a User' do
         expect do
-          # make_request_for_signup(invalid_attributes)
+          make_request_for_signup(invalid_attributes)
         end.not_to change(User, :count)
       end
 
       it 'returns errors within the JSON payload' do
-        # make_request_for_signup(invalid_attributes)
+        make_request_for_signup(invalid_attributes)
 
         expect(json_response['errors']).not_to be_empty
       end
@@ -71,26 +56,10 @@ RSpec.describe 'Users API', type: :request do
 
   def valid_attributes
     { user: attributes_for(:user) }
-    # {
-    #   "user": {
-    #     "name": 'Son Goku',
-    #     "email": 'goku@gmail.com',
-    #     "password": '12345678',
-    #     "password_confirmation": '12345678'
-    #   }
-    # }
   end
 
   def invalid_attributes
     { user: attributes_for(:user, email: '') }
-    # {
-    #   "user": {
-    #     "name": '',
-    #     "email": 'goku@gmail.com',
-    #     "password": '12345678',
-    #     "password_confirmation": '12345678'
-    #   }
-    # }
   end
 
   def user_fields
