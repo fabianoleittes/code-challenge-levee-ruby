@@ -18,7 +18,7 @@ require "action_view/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
+Dotenv::Railtie.load
 module CodeChallengeLeveeRuby
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
