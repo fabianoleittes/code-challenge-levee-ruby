@@ -43,6 +43,7 @@ jobs:
             bundle install --jobs 4 --retry 3
       - name: Setup test database
         env:
+          RAILS_ENV: test
           POSTGRES_HOST: localhost
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
@@ -54,6 +55,9 @@ jobs:
       - name: Run Tests
         env:
           RAILS_ENV: test
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_HOST: localhost
           APPLICATION_HOST: http://api.localhost:3000
         run: |
           bin/rspec
