@@ -1,1 +1,1 @@
-# Rails.application.config.hosts = ENV.fetch('APPLICATION_HOST')
+Rails.application.config.hosts = ENV.fetch('APPLICATION_HOST')
