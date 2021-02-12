@@ -44,6 +44,33 @@ RSpec.describe 'Jobs API', type: :request do
         expect(json_response['errors']).not_to be_empty
       end
     end
+
+    describe 'GET /v1/jobs' do
+      context 'when there is a list of jobs' do
+        it 'returns http status code ok' do
+          make_request_for_retrieve_all_job
+          expect(response).to have_http_status(:ok)
+        end
+
+        it 'returns a list of jobs' do
+          create_job_list
+          make_request_for_retrieve_all_job
+          expect(json_response['data'].size).to eq(5)
+        end
+      end
+
+      context 'when there is no list of jobs' do
+        it 'returns http status ok' do
+          make_request_for_retrieve_all_job
+          expect(response).to have_http_status(:ok)
+        end
+
+        it 'returns an empty list' do
+          make_request_for_retrieve_all_job
+          expect(json_response['data'].size).to eq(0)
+        end
+      end
+    end
   end
 
   def make_request_for_job(attributes)
@@ -52,6 +79,18 @@ RSpec.describe 'Jobs API', type: :request do
       params: attributes.to_json,
       headers: valid_headers
     )
+  end
+
+  def make_request_for_retrieve_all_job
+    get(
+      '/v1/jobs',
+      params: {},
+      headers: valid_headers
+    )
+  end
+
+  def create_job_list
+    create_list(:job, 5)
   end
 
   def valid_attributes
