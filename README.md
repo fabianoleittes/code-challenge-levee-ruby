@@ -47,14 +47,14 @@ This project is a simple API for some `Job` routines, such as creating, listing,
 
 ## Features
 
-- [ ] Create job
-- [ ] List the all jobs
+- [x] Create job
+- [x] List the all jobs
 - [ ] Activate the status for a specific job
 - [ ] List the percentage and number of active jobs by category.
-- [ ] JWT Token Based Authentication
-- [ ] API versioning
-- [ ] JSON Schema implementation
-- [ ] Setup scripts
+- [x] JWT Token Based Authentication
+- [x] API versioning
+- [x] JSON Schema implementation
+- [x] Setup scripts
 
 ---
 
@@ -96,13 +96,23 @@ $ docker-compose run --rm api bin/rspec spec
 
 #### API Request
 
- Endpoint        | HTTP Method           | Description       |
-| --------------- | :---------------------: | :-----------------: |
+### Signup/Login
 
+| URL / ENDPOINT          | VERB | DESCRIPTION      |
+| ----------------------- | ---- | ---------------- |
+| /v1/signup              | POST | Create user      |
+| /v1/auth/login          | POST | Generate token   |
+
+### Jobs
+| URL / ENDPOINT          | VERB | DESCRIPTION      |
+| ----------------------- | ---- | ---------------- |
+| /v1/jobs | POST | Create Job      |
+| /v1/jobs      | GET  | Returns all Job |
+| /v1/jobs/:id  | PUT  | Update Job Status |
 ---
 
 ## Test endpoints `API` using curl
-
+---
 ## Tech Stack
 
 The following tools were used in the construction of the project:
