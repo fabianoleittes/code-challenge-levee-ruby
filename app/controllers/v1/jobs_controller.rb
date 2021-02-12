@@ -4,6 +4,15 @@ module V1
   class JobsController < ApplicationController
     before_action :authorize_request
 
+    def index
+      respond_with_json(
+        JobBlueprint.render(
+          Job.all,
+          root: :data
+        )
+      )
+    end
+
     def create
       save_job
     end
