@@ -49,7 +49,7 @@ This project is a simple API for some `Job` routines, such as creating, listing,
 
 - [x] Create job
 - [x] List the all jobs
-- [ ] Activate the status for a specific job
+- [x] Activate the status for a specific job
 - [ ] List the percentage and number of active jobs by category.
 - [x] JWT Token Based Authentication
 - [x] API versioning
