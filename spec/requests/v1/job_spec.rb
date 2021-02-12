@@ -44,31 +44,51 @@ RSpec.describe 'Jobs API', type: :request do
         expect(json_response['errors']).not_to be_empty
       end
     end
+  end
 
-    describe 'GET /v1/jobs' do
-      context 'when there is a list of jobs' do
-        it 'returns http status code ok' do
-          make_request_for_retrieve_all_job
-          expect(response).to have_http_status(:ok)
-        end
-
-        it 'returns a list of jobs' do
-          create_job_list
-          make_request_for_retrieve_all_job
-          expect(json_response['data'].size).to eq(5)
-        end
+  describe 'GET /v1/jobs' do
+    context 'when there is a list of jobs' do
+      it 'returns http status code ok' do
+        make_request_for_retrieve_all_job
+        expect(response).to have_http_status(:ok)
       end
 
-      context 'when there is no list of jobs' do
-        it 'returns http status ok' do
-          make_request_for_retrieve_all_job
-          expect(response).to have_http_status(:ok)
-        end
+      it 'returns a list of jobs' do
+        create_job_list
+        make_request_for_retrieve_all_job
+        expect(json_response['data'].size).to eq(5)
+      end
+    end
 
-        it 'returns an empty list' do
-          make_request_for_retrieve_all_job
-          expect(json_response['data'].size).to eq(0)
-        end
+    context 'when there is no list of jobs' do
+      it 'returns http status ok' do
+        make_request_for_retrieve_all_job
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'returns an empty list' do
+        make_request_for_retrieve_all_job
+        expect(json_response['data'].size).to eq(0)
+      end
+    end
+  end
+
+  describe 'PATCH /v1/jobs/:id' do
+    context 'when the request is valid' do
+      it 'updates the specified job' do
+        job = create_job
+
+        make_request_for_update_status_job(job.id)
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context 'when the request is invalid' do
+      it 'returns http status code unprocessable_entity' do
+        job = create_job
+
+        make_invalid_request_for_update_status_job(job.id)
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
@@ -89,6 +109,30 @@ RSpec.describe 'Jobs API', type: :request do
     )
   end
 
+  def make_request_for_update_status_job(id)
+    patch(
+      "/v1/jobs/#{id}",
+      params: update_attr(status: 'active'),
+      headers: valid_headers
+    )
+  end
+
+  def make_invalid_request_for_update_status_job(id)
+    patch(
+      "/v1/jobs/#{id}",
+      params: update_attr,
+      headers: valid_headers
+    )
+  end
+
+  def update_attr(status: '')
+    job_params = {
+      job: {
+        status: status
+      }
+    }.to_json
+  end
+
   def create_job_list
     create_list(:job, 5)
   end
@@ -103,6 +147,10 @@ RSpec.describe 'Jobs API', type: :request do
 
   def user
     create(:user)
+  end
+
+  def create_job
+    create(:job)
   end
 
   def valid_headers
