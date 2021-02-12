@@ -17,7 +17,15 @@ module V1
       save_job
     end
 
+    def update
+      update_job
+    end
+
     private
+
+    def find_job
+      yield(Job.find(params[:id]))
+    end
 
     def build_job
       yield(Job.new(job_params))
@@ -38,6 +46,20 @@ module V1
       end
     end
 
+    def update_job
+      find_job do |job|
+        if job.update(job_params)
+          respond_with_json(
+            JobBlueprint.render(
+              job, root: :job
+            )
+          )
+        else
+          respond_with_errors(job)
+        end
+      end
+    end
+
     def job_params
       params
         .require(:job)
@@ -46,6 +68,7 @@ module V1
             title
             partner_id
             category_id
+            status
             expires_at
           ]
         )
