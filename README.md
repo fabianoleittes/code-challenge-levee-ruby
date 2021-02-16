@@ -50,7 +50,7 @@ This project is a simple API for some `Job` routines, such as creating, listing,
 - [x] Create job
 - [x] List the all jobs
 - [x] Activate the status for a specific job
-- [ ] List the percentage and number of active jobs by category.
+- [x] List the percentage and number of active jobs by category.
 - [x] JWT Token Based Authentication
 - [x] API versioning
 - [x] JSON Schema implementation
@@ -109,9 +109,41 @@ $ docker-compose run --rm api bin/rspec spec
 | /v1/jobs | POST | Create Job      |
 | /v1/jobs      | GET  | Returns all Job |
 | /v1/jobs/:id  | PUT  | Update Job Status |
+| /v1/category/:id  | GET  | List percentage |
 ---
 
 ## Test endpoints `API` using curl
+- #### Creating new job
+
+`Request`
+```bash
+curl -i --request POST 'http://localhost:3001/v1/jobs' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"job": {
+	  "partner_id": "6",
+	  "title": "Jr Go Dev",
+	  "category_id": "2",
+	  "expires_at": "2021-03-14"
+	}
+}'
+```
+
+`Response`
+```json
+{
+  "job": {
+    "id": "06d1c2e4-87f1-4439-abe3-2f0b96065d1c",
+    "category_id": 2,
+    "created_at": "2021-02-16T19:57:53.379Z",
+    "expires_at": "2021-03-14T00:00:00.000Z",
+    "partner_id": 6,
+    "status": "draft",
+    "title": "Jr Go Dev",
+    "updated_at": "2021-02-16T19:57:53.379Z"
+  }
+}
+```
 ---
 ## Tech Stack
 

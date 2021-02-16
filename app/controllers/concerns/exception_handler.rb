@@ -12,11 +12,14 @@ module ExceptionHandler
 
   class NotPermittedException < StandardError; end
 
+  class CategoryNotFound < StandardError; end
+
   included do
     rescue_from ActiveRecord::RecordInvalid, with: :four_twenty_two
     rescue_from ExceptionHandler::AuthenticatorError, with: :unauthorized_request
     rescue_from ExceptionHandler::MissingToken, with: :four_twenty_two
     rescue_from ExceptionHandler::InvalidToken, with: :four_twenty_two
+    rescue_from ExceptionHandler::CategoryNotFound, with: :forty_zero_four
 
     rescue_from ActiveRecord::RecordNotFound do |e|
       json_response({ message: e.message }, :not_found)
@@ -32,6 +35,10 @@ module ExceptionHandler
 
   def four_twenty_two(err)
     json_response({ message: err.message }, :unprocessable_entity)
+  end
+
+  def forty_zero_four(err)
+    json_response({ message: err.message }, :not_found)
   end
 
   def unauthorized_request(err)
