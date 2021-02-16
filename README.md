@@ -112,38 +112,12 @@ $ docker-compose run --rm api bin/rspec spec
 | /v1/category/:id  | GET  | List percentage |
 ---
 
-## Test endpoints `API` using curl
-- #### Creating new job
+## Test endpoints `API` using Insomnia
 
-`Request`
-```bash
-curl -i --request POST 'http://localhost:3001/v1/jobs' \
---header 'Content-Type: application/json' \
---data-raw '{
-	"job": {
-	  "partner_id": "6",
-	  "title": "Jr Go Dev",
-	  "category_id": "2",
-	  "expires_at": "2021-03-14"
-	}
-}'
-```
+<p align="center">
+  <a href="https://insomnia.rest/run/?label=Levee%20code%20challenge%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2Ffabianoleittes%2Fcode-challenge-levee-ruby%2Fmain%2Fexport.json%3Ftoken%3DAACEGMEMVV27F32O6TSY7WDAFQ3BM" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+</p>
 
-`Response`
-```json
-{
-  "job": {
-    "id": "06d1c2e4-87f1-4439-abe3-2f0b96065d1c",
-    "category_id": 2,
-    "created_at": "2021-02-16T19:57:53.379Z",
-    "expires_at": "2021-03-14T00:00:00.000Z",
-    "partner_id": 6,
-    "status": "draft",
-    "title": "Jr Go Dev",
-    "updated_at": "2021-02-16T19:57:53.379Z"
-  }
-}
-```
 ---
 ## Tech Stack
 
