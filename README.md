@@ -115,7 +115,7 @@ $ docker-compose run --rm api bin/rspec spec
 ## Test endpoints `API` using Insomnia
 
 <p align="center">
-  <a href="https://insomnia.rest/run/?label=Levee%20code%20challenge%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2Ffabianoleittes%2Fcode-challenge-levee-ruby%2Fmain%2Fexport.json%3Ftoken%3DAACEGMEMVV27F32O6TSY7WDAFQ3BM" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+  <a href="https://insomnia.rest/run/?label=Levee%20code%20challenge%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2Ffabianoleittes%2Fcode-challenge-levee-ruby%2Fmain%2Fexport.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
 
 ---
